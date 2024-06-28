@@ -1,0 +1,21 @@
+{
+  "name": "localstack-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx serverless offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.140",
+    "serverless": "^3.39.0",
+    "serverless-offline": "^13.6.0",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "serverless-plugin-typescript": "^2.1.5"
+  }
+}

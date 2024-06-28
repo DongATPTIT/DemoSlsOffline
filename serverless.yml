@@ -1,0 +1,19 @@
+app: demoSls
+service: demoSls
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  firstFunction:
+    handler: src/test.handler
+    events:
+      - httpApi:
+          path: /users
+          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
