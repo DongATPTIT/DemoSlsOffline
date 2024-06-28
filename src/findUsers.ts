@@ -6,15 +6,12 @@ type IUserDTo = {
     email: string
 }
 export const handler = async (event: APIGatewayProxyEvent) => {
-    const  {name,email} = JSON.parse(event.body!) as IUserDTo;
-    const result = await prismaClientDatabase.user.create({
-        data: {
-          name, 
-          email     
-        }
-      });
+    const result =  await prismaClientDatabase.user.findMany({
+        where:
+          {name: event.pathParameters?.name}});
     return {
         statusCode: 200,
-        body: JSON.stringify(result)    }
+        body: JSON.stringify(result)   
+     } 
 
 }

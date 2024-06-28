@@ -19,6 +19,12 @@ functions:
       - httpApi:
           path: /users
           method: post
+  findUserByName:
+   handler: src/findUsers.handler
+   events:
+     - httpApi: 
+          path: /users/{name}
+          method: get
 plugins:
   - serverless-offline
   - serverless-plugin-typescript

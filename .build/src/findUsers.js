@@ -39,17 +39,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 var database_1 = require("./database");
 var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, email, result;
+    var result;
+    var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
-            case 0:
-                _a = JSON.parse(event.body), name = _a.name, email = _a.email;
-                return [4 /*yield*/, database_1.prismaClientDatabase.user.create({
-                        data: {
-                            name: name,
-                            email: email
-                        }
-                    })];
+            case 0: return [4 /*yield*/, database_1.prismaClientDatabase.user.findMany({
+                    where: { name: (_a = event.pathParameters) === null || _a === void 0 ? void 0 : _a.name }
+                })];
             case 1:
                 result = _b.sent();
                 return [2 /*return*/, {
@@ -60,4 +56,4 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
     });
 }); };
 exports.handler = handler;
-//# sourceMappingURL=createUser.js.map
+//# sourceMappingURL=findUsers.js.map

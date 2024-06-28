@@ -41,7 +41,7 @@ var handler = function () { return __awaiter(void 0, void 0, void 0, function ()
     return __generator(this, function (_a) {
         return [2 /*return*/, {
                 statusCode: 200,
-                message: JSON.stringify({ message: "Test OK" })
+                body: JSON.stringify({ message: "Test OK" })
             }];
     });
 }); };
