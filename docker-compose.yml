@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # mysql------------------------------------------
+  mysql:
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      # MYSQL_ROOT_PASSWORD: "Dong10052002@"
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demoSls
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+    networks:
+      - mysql
+
+networks:
+  mysql:
+    external: true
+
+volumes:
+  mysql:

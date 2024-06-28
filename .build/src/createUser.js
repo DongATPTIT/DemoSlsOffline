@@ -37,13 +37,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
-var handler = function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        return [2 /*return*/, {
-                statusCode: 200,
-                message: JSON.stringify({ message: "Test OK" })
-            }];
+var database_1 = require("./database");
+var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, email, result;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = JSON.parse(event.body), name = _a.name, email = _a.email;
+                return [4 /*yield*/, database_1.prismaClientDatabase.user.create({
+                        data: {
+                            name: name,
+                            email: email
+                        }
+                    })];
+            case 1:
+                result = _b.sent();
+                return [2 /*return*/, {
+                        statusCode: 200,
+                        message: JSON.stringify(result)
+                    }];
+        }
     });
 }); };
 exports.handler = handler;
-//# sourceMappingURL=test.js.map
+//# sourceMappingURL=createUser.js.map

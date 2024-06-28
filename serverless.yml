@@ -13,7 +13,12 @@ functions:
       - httpApi:
           path: /users
           method: get
-
+  createUser:
+    handler: src/createUser.handler
+    events:
+      - httpApi:
+          path: /users
+          method: post
 plugins:
   - serverless-offline
   - serverless-plugin-typescript
